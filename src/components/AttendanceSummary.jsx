@@ -8,7 +8,7 @@ const AttendanceSummary = () => {
   };
 
   return (
-    <div className="p-6 bg-white shadow rounded-lg flex justify-between">
+    <div className="p-6 bg-white shadow rounded-lg flex justify-between h-44">
       <div className="flex flex-col items-center mb-4">
         <h2 className="text-lg font-semibold p-4">Attendance Summary</h2>
         <select
@@ -172,7 +172,7 @@ const AttendanceSummary = () => {
       <div className="bg-white p-4 rounded-lg shadow">
         <p>
           Punch In Time:{" "}
-          <span className="font-semibold text-gray-800">10 PM</span>
+          <span className="font-semibold text-gray-800">10 AM</span>
         </p>
         <p>
           Total Hours:{" "}

@@ -33,7 +33,7 @@ const events = [
 
 const Calendar = () => {
   return (
-    <div className="w-3/4 p-4 border border-black m-2 shadow-lg font-bold">
+    <div className="w-[70%] p-4 border border-black m-2 shadow-lg font-bold">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
@@ -50,6 +50,7 @@ const Calendar = () => {
           minute: "2-digit",
           meridiem: "short",
         }}
+        height={"400px"}
       />
     </div>
   );

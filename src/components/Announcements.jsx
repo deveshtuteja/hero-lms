@@ -41,7 +41,7 @@ const Announcements = () => {
   }, [currentIndex, messages]);
 
   return (
-    <div className="w-1/4 border border-black shadow-lg m-2 px-4 py-3 overflow-y-scroll h-96">
+    <div className="w-1/4 border border-black shadow-lg m-2 px-4 py-3 overflow-y-scroll h-[450px]">
       <h1 className="font-bold text-xl mb-3">Announcements</h1>
       <div className="relative h-40">
         <div className="space-y-2 transition-all duration-500 ease-in-out">
