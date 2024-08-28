@@ -1,14 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AttendanceSummary = () => {
   const [selectedMonth, setSelectedMonth] = useState("September 2024");
+  const navigate = useNavigate();
 
   const handleMonthChange = (e) => {
     setSelectedMonth(e.target.value);
   };
 
+  const handleAttendance = () => {
+    navigate("/attendance");
+  };
+
   return (
-    <div className="p-6 bg-white shadow rounded-lg flex justify-between h-44">
+    <div className="p-6 bg-white shadow rounded-lg flex justify-between h-48 gap-4">
       <div className="flex flex-col items-center mb-4">
         <h2 className="text-lg font-semibold p-4">Attendance Summary</h2>
         <select
@@ -181,6 +187,13 @@ const AttendanceSummary = () => {
         <p>
           Reporting Manager:{" "}
           <span className="font-semibold text-gray-800">Anil Kumar Singh</span>
+          <button
+            type="submit"
+            className="bg-red-600 text-white py-1 rounded-md hover:bg-red-800 w-full font-semibold"
+            onClick={() => handleAttendance()}
+          >
+            Attendance Correction
+          </button>
         </p>
       </div>
     </div>

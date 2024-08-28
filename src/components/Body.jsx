@@ -1,13 +1,15 @@
 import Announcements from "./Announcements";
 import AttendanceSummary from "./AttendanceSummary";
 import Calendar from "./Calendar";
+import Head from "./head";
 import Helpdesk from "./Helpdesk";
 import LeaveForm from "./LeaveForm";
 import Timesheet from "./Timesheet";
 
 const Body = () => {
   return (
-    <div>
+    <>
+      <Head />
       <div>
         <AttendanceSummary />
       </div>
@@ -20,11 +22,7 @@ const Body = () => {
           <LeaveForm className="flex-grow" />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4 mt-4">
-        <Timesheet />
-        <Helpdesk />
-      </div>
-    </div>
+    </>
   );
 };
 
