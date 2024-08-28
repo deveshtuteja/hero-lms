@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import AnnouncementMessage from "./AnnouncementMessage";
 
 const Announcements = () => {
@@ -23,9 +23,13 @@ const Announcements = () => {
       message: "New Parking Policy",
       info: "Please review the updated parking policy.",
     },
+    {
+      message: "Promotions",
+      info: "Please check the document attached.",
+    },
   ]);
 
-  const [visibleMessages, setVisibleMessages] = useState(messages.slice(0, 3));
+  const [visibleMessages, setVisibleMessages] = useState(messages.slice(0, 2));
   const [currentIndex, setCurrentIndex] = useState(3);
 
   useEffect(() => {
@@ -41,7 +45,7 @@ const Announcements = () => {
   }, [currentIndex, messages]);
 
   return (
-    <div className="w-1/4 border border-black shadow-lg m-2 px-4 py-3 overflow-y-scroll h-[450px]">
+    <div className="border border-black rounded-md shadow-lg m-2 px-4 py-3 overflow-y-scroll h-72">
       <h1 className="font-bold text-xl mb-3">Announcements</h1>
       <div className="relative h-40">
         <div className="space-y-2 transition-all duration-500 ease-in-out">
@@ -59,7 +63,7 @@ const Announcements = () => {
       </div>
       <button
         onClick={() => setVisibleMessages(messages)}
-        className="mt-32 text-blue-500 hover:text-blue-700 place-self-center"
+        className="mt-10 text-blue-500 hover:text-blue-700 ml-16"
       >
         SEE ALL ANNOUNCEMENTS
       </button>
