@@ -4,10 +4,11 @@ import AttendanceSummary from "./components/AttendanceSummary";
 import Head from "./components/head";
 import Timesheet from "./components/Timesheet";
 import Helpdesk from "./components/Helpdesk";
-import LeaveForm from "./components/LeaveForm";
 import LeaveManagementDashboard from "./components/LeaveManagementDashboard";
 import SupportQueryForm from "./components/SupportQueryForm";
 import Profile from "./components/Profile";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -53,9 +54,11 @@ function App() {
     },
   ]);
   return (
-    <div>
-      <RouterProvider router={appRouter} />
-    </div>
+    <Provider store={appStore}>
+      <div>
+        <RouterProvider router={appRouter} />
+      </div>
+    </Provider>
   );
 }
 

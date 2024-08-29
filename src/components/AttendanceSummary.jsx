@@ -14,7 +14,7 @@ const AttendanceSummary = () => {
   };
 
   return (
-    <div className="p-6 bg-white shadow rounded-lg flex justify-between h-48 gap-4">
+    <div className="p-6 bg-white shadow rounded-lg flex justify-between h-48 gap-4 dark:bg-black dark:text-white">
       <div className="flex flex-col items-center mb-4">
         <h2 className="text-lg font-semibold p-4">Attendance Summary</h2>
         <select
