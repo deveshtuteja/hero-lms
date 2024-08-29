@@ -26,13 +26,13 @@ const LeaveRequestCard = ({ request, onApprove, onReject, viewMode }) => (
           <div className="flex space-x-2">
             <button
               onClick={() => onReject(request.id)}
-              className="px-4 py-2 bg-red-500 text-white rounded"
+              className="px-4 py-2 bg-red-500 text-white rounded  dark:bg-red-700"
             >
               Reject
             </button>
             <button
               onClick={() => onApprove(request.id)}
-              className="px-4 py-2 bg-green-500 text-white rounded"
+              className="px-4 py-2 bg-green-500 text-white rounded  dark:bg-green-700"
             >
               Approve
             </button>
@@ -49,13 +49,13 @@ const LeaveRequestCard = ({ request, onApprove, onReject, viewMode }) => (
         <div className="mt-4 flex justify-center space-x-2">
           <button
             onClick={() => onReject(request.id)}
-            className="px-4 py-2 bg-red-500 text-white rounded"
+            className="px-4 py-2 bg-red-500 text-white rounded dark:bg-red-700"
           >
             Reject
           </button>
           <button
             onClick={() => onApprove(request.id)}
-            className="px-4 py-2 bg-green-500 text-white rounded"
+            className="px-4 py-2 bg-green-500 text-white rounded dark:bg-green-700"
           >
             Approve
           </button>
@@ -63,6 +63,19 @@ const LeaveRequestCard = ({ request, onApprove, onReject, viewMode }) => (
       </CardContent>
     )}
   </Card>
+);
+
+const TeamLeaveInfo = ({ teamLeaves }) => (
+  <ul className="space-y-2">
+    {teamLeaves.map((leave, index) => (
+      <li key={index} className="flex justify-between items-center">
+        <span>{leave.name}</span>
+        <span className="text-sm text-gray-500 dark:text-gray-400">
+          {leave.startDate} - {leave.endDate}
+        </span>
+      </li>
+    ))}
+  </ul>
 );
 
 const LeaveManagementDashboard = () => {
@@ -150,6 +163,12 @@ const LeaveManagementDashboard = () => {
     // Add more mock data as needed
   ];
 
+  const teamLeaves = [
+    { name: "Alice Johnson", startDate: "2024-09-10", endDate: "2024-09-12" },
+    { name: "Bob Smith", startDate: "2024-09-15", endDate: "2024-09-16" },
+    { name: "Charlie Brown", startDate: "2024-09-20", endDate: "2024-09-22" },
+  ];
+
   const filteredRequests = leaveRequests.filter(
     (request) => request.status === activeTab
   );
@@ -171,7 +190,9 @@ const LeaveManagementDashboard = () => {
             <button
               onClick={() => setViewMode("grid")}
               className={`p-2 ${
-                viewMode === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"
+                viewMode === "grid"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 dark:bg-gray-600"
               } rounded`}
             >
               <LayoutGrid size={20} />
@@ -179,7 +200,9 @@ const LeaveManagementDashboard = () => {
             <button
               onClick={() => setViewMode("list")}
               className={`p-2 ${
-                viewMode === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
+                viewMode === "list"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 dark:bg-gray-600"
               } rounded`}
             >
               <List size={20} />
@@ -224,7 +247,7 @@ const LeaveManagementDashboard = () => {
         </Tabs>
       </div>
 
-      <div className="w-[50%]">
+      <div className="w-[50%] p-4">
         <Card>
           <CardHeader>
             <h3 className="text-lg font-semibold">Calendar</h3>
@@ -245,7 +268,10 @@ const LeaveManagementDashboard = () => {
           <CardHeader>
             <h3 className="text-lg font-semibold">My Team Leaves</h3>
           </CardHeader>
-          <CardContent>{/* Add team leave information here */}</CardContent>
+          <CardContent>
+            {" "}
+            <TeamLeaveInfo teamLeaves={teamLeaves} />
+          </CardContent>
         </Card>
       </div>
     </div>
