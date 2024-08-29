@@ -2,9 +2,7 @@ import Announcements from "./Announcements";
 import AttendanceSummary from "./AttendanceSummary";
 import Calendar from "./Calendar";
 import Head from "./head";
-import Helpdesk from "./Helpdesk";
 import LeaveForm from "./LeaveForm";
-import Timesheet from "./Timesheet";
 
 const Body = () => {
   return (
