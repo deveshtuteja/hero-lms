@@ -17,7 +17,7 @@ const LeaveForm = () => {
     leaveType === "short" || leaveType === "half-day";
 
   return (
-    <div className="m-2 px-4 py-3 border rounded-md shadow-lg border-black">
+    <div className="m-2 px-4 py-3 border rounded-md shadow-lg border-black dark:border-gray-50 dark:bg-slate-900">
       <h1 className="text-lg font-bold mb-4">Apply for Leave</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -25,7 +25,7 @@ const LeaveForm = () => {
           <select
             value={leaveType}
             onChange={(e) => setLeaveType(e.target.value)}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md dark:bg-gray-800"
           >
             <option value="">Select Leave Type</option>
             <option value="sick">Sick Leave</option>
@@ -42,7 +42,7 @@ const LeaveForm = () => {
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md dark:bg-gray-800"
           />
         </div>
 
@@ -53,7 +53,7 @@ const LeaveForm = () => {
               type="time"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md dark:bg-gray-800"
             />
           </div>
         )}
@@ -64,7 +64,7 @@ const LeaveForm = () => {
             type="date"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md dark:bg-gray-800"
             disabled={leaveType === "half-day"}
           />
         </div>
@@ -76,7 +76,7 @@ const LeaveForm = () => {
               type="time"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md dark:bg-gray-800"
             />
           </div>
         )}
@@ -86,7 +86,7 @@ const LeaveForm = () => {
           <textarea
             value={reason}
             onChange={(e) => setReason(e.target.value)}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md dark:bg-gray-800"
             rows={isShortOrHalfDayLeave ? "1" : "3"}
           ></textarea>
         </div>
