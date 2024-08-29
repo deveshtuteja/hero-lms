@@ -18,7 +18,7 @@ const AttendanceSummary = () => {
       <div className="flex flex-col items-center mb-4">
         <h2 className="text-lg font-semibold p-4">Attendance Summary</h2>
         <select
-          className="border border-gray-300 rounded-lg p-2 text-gray-700"
+          className="border border-gray-300 rounded-lg p-2 text-gray-700 dark:bg-slate-700 dark:text-white"
           value={selectedMonth}
           onChange={handleMonthChange}
         >
@@ -30,38 +30,40 @@ const AttendanceSummary = () => {
       </div>
 
       {/* Attendance Summary Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-50 rounded-lg mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-50 rounded-lg mb-6 dark:bg-slate-800 dark:text-white">
         <div className="flex flex-wrap md:flex-nowrap justify-around items-center w-full md:w-auto">
           <div className="text-center p-2">
             <div className="w-10 h-10 bg-green-100 text-green-700 flex items-center justify-center rounded-full mb-1">
               01
             </div>
-            <div className="text-sm text-gray-600">Present</div>
+            <div className="text-sm text-gray-600 dark:text-white">Present</div>
           </div>
           <div className="text-center p-2">
             <div className="w-10 h-10 bg-red-100 text-red-700 flex items-center justify-center rounded-full mb-1">
               02
             </div>
-            <div className="text-sm text-gray-600">Absent</div>
+            <div className="text-sm text-gray-600  dark:text-white">Absent</div>
           </div>
           <div className="text-center p-2">
             <div className="w-10 h-10 bg-purple-100 text-purple-700 flex items-center justify-center rounded-full mb-1">
               04
             </div>
-            <div className="text-sm text-gray-600">Leave</div>
+            <div className="text-sm text-gray-600  dark:text-white">Leave</div>
           </div>
           <div className="text-center p-2">
             <div className="w-10 h-10 bg-yellow-100 text-yellow-700 flex items-center justify-center rounded-full mb-1">
               04
             </div>
-            <div className="text-sm text-gray-600">Holidays</div>
+            <div className="text-sm text-gray-600  dark:text-white">
+              Holidays
+            </div>
           </div>
         </div>
       </div>
 
       {/* Leave Balances Section */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="text-center bg-white p-4 rounded-lg shadow">
+        <div className="text-center bg-white p-4 rounded-lg shadow dark:bg-slate-800">
           <div className="flex justify-center items-center">
             <div className="relative w-20 h-20">
               <svg className="absolute w-full h-full" viewBox="0 0 36 36">
@@ -86,10 +88,12 @@ const AttendanceSummary = () => {
               </span>
             </div>
           </div>
-          <div className="mt-2 text-sm text-gray-600">Sick Leave</div>
+          <div className="mt-2 text-sm text-gray-600 dark:text-white">
+            Sick Leave
+          </div>
         </div>
 
-        <div className="text-center bg-white p-4 rounded-lg shadow">
+        <div className="text-center bg-white p-4 rounded-lg shadow  dark:bg-slate-800">
           <div className="flex justify-center items-center">
             <div className="relative w-20 h-20">
               <svg className="absolute w-full h-full" viewBox="0 0 36 36">
@@ -114,10 +118,12 @@ const AttendanceSummary = () => {
               </span>
             </div>
           </div>
-          <div className="mt-2 text-sm text-gray-600">Privileged Leave</div>
+          <div className="mt-2 text-sm text-gray-600 dark:text-white">
+            Privileged Leave
+          </div>
         </div>
 
-        <div className="text-center bg-white p-4 rounded-lg shadow">
+        <div className="text-center bg-white p-4 rounded-lg shadow dark:bg-slate-800">
           <div className="flex justify-center items-center">
             <div className="relative w-20 h-20">
               <svg className="absolute w-full h-full" viewBox="0 0 36 36">
@@ -142,10 +148,12 @@ const AttendanceSummary = () => {
               </span>
             </div>
           </div>
-          <div className="mt-2 text-sm text-gray-600">Floater Holiday</div>
+          <div className="mt-2 text-sm text-gray-600 dark:text-white">
+            Floater Holiday
+          </div>
         </div>
 
-        <div className="text-center bg-white p-4 rounded-lg shadow">
+        <div className="text-center bg-white p-4 rounded-lg shadow dark:bg-slate-800">
           <div className="flex justify-center items-center">
             <div className="relative w-20 h-20">
               <svg className="absolute w-full h-full" viewBox="0 0 36 36">
@@ -170,26 +178,34 @@ const AttendanceSummary = () => {
               </span>
             </div>
           </div>
-          <div className="mt-2 text-sm text-gray-600">Casual Leave</div>
+          <div className="mt-2 text-sm text-gray-600 dark:text-white">
+            Casual Leave
+          </div>
         </div>
       </div>
 
       {/* Punch Time and Details */}
-      <div className="bg-white p-4 rounded-lg shadow">
+      <div className="bg-white p-4 rounded-lg shadow dark:bg-slate-800">
         <p>
           Punch In Time:{" "}
-          <span className="font-semibold text-gray-800">10 AM</span>
+          <span className="font-semibold text-gray-800 dark:text-gray-50">
+            10 AM
+          </span>
         </p>
         <p>
           Total Hours:{" "}
-          <span className="font-semibold text-gray-800">5 hours</span>
+          <span className="font-semibold text-gray-800  dark:text-gray-50">
+            5 hours
+          </span>
         </p>
         <p>
           Reporting Manager:{" "}
-          <span className="font-semibold text-gray-800">Anil Kumar Singh</span>
+          <span className="font-semibold text-gray-800  dark:text-gray-50">
+            Anil Kumar Singh
+          </span>
           <button
             type="submit"
-            className="bg-red-600 text-white py-1 rounded-md hover:bg-red-800 w-full font-semibold"
+            className="bg-red-600 text-white py-1 rounded-md hover:bg-red-800 w-full font-semibold dark:bg-red-800 dark:hover:bg-red-600"
             onClick={() => handleAttendance()}
           >
             Attendance Correction

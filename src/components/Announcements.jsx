@@ -45,8 +45,10 @@ const Announcements = () => {
   }, [currentIndex, messages]);
 
   return (
-    <div className="border border-black rounded-md shadow-lg m-2 px-4 py-3 overflow-y-scroll h-72">
-      <h1 className="font-bold text-xl mb-3">Announcements</h1>
+    <div className="border border-black rounded-md shadow-lg m-2 px-4 py-3 overflow-y-scroll h-72 dark:bg-slate-900 dark:border-gray-50">
+      <h1 className="font-bold text-xl mb-3 dark:text-gray-50">
+        Announcements
+      </h1>
       <div className="relative h-40">
         <div className="space-y-2 transition-all duration-500 ease-in-out">
           {visibleMessages.map((msg, index) => (

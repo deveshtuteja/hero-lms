@@ -1,3 +1,4 @@
+import { HERO_LOGO_URL } from "@/utils/constants";
 import { toggleTheme } from "@/utils/themeSlice";
 import {
   Disclosure,
@@ -63,11 +64,7 @@ export default function Head() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <a href="/">
-                <img
-                  alt="Hero"
-                  src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Hero_MotoCorp_Logo.svg"
-                  className="h-8 w-auto"
-                />
+                <img alt="Hero" src={HERO_LOGO_URL} className="h-8 w-auto" />
               </a>
             </div>
             <div className="hidden sm:ml-6 sm:block">
