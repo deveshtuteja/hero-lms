@@ -1,45 +1,67 @@
 import { useState } from "react";
-import FullCalendar from "@fullcalendar/react"; // Corrected import
-import dayGridPlugin from "@fullcalendar/daygrid"; // Plugin for day grid view
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LayoutGrid, List } from "lucide-react";
 
-const LeaveRequestCard = ({ request, onApprove, onReject }) => (
+const LeaveRequestCard = ({ request, onApprove, onReject, viewMode }) => (
   <Card className="mb-4">
     <CardHeader>
-      <div className="flex items-center">
+      <div
+        className={`flex ${
+          viewMode === "list" ? "items-center" : "self-center"
+        }`}
+      >
         <img
           src={request.avatar}
           alt={request.name}
           className="w-12 h-12 rounded-full mr-4"
         />
-        <div>
+        <div className="flex-1">
           <h3 className="text-lg font-semibold">{request.name}</h3>
           <p className="text-sm text-gray-500">{request.position}</p>
         </div>
+        {viewMode === "list" && (
+          <div className="flex space-x-2">
+            <button
+              onClick={() => onReject(request.id)}
+              className="px-4 py-2 bg-red-500 text-white rounded"
+            >
+              Reject
+            </button>
+            <button
+              onClick={() => onApprove(request.id)}
+              className="px-4 py-2 bg-green-500 text-white rounded"
+            >
+              Approve
+            </button>
+          </div>
+        )}
       </div>
     </CardHeader>
-    <CardContent>
-      <p>Start date: {request.startDate}</p>
-      <p>End date: {request.endDate}</p>
-      <p>Number of days: {request.days}</p>
-      <p>Leave type: {request.leaveType}</p>
-      <div className="mt-4 flex justify-end space-x-2">
-        <button
-          onClick={() => onReject(request.id)}
-          className="px-4 py-2 bg-red-500 text-white rounded"
-        >
-          Reject
-        </button>
-        <button
-          onClick={() => onApprove(request.id)}
-          className="px-4 py-2 bg-green-500 text-white rounded"
-        >
-          Approve
-        </button>
-      </div>
-    </CardContent>
+    {viewMode === "grid" && (
+      <CardContent>
+        <p className="text-center">Start date: {request.startDate}</p>
+        <p className="text-center">End date: {request.endDate}</p>
+        <p className="text-center">Number of days: {request.days}</p>
+        <p className="text-center">Leave type: {request.leaveType}</p>
+        <div className="mt-4 flex justify-center space-x-2">
+          <button
+            onClick={() => onReject(request.id)}
+            className="px-4 py-2 bg-red-500 text-white rounded"
+          >
+            Reject
+          </button>
+          <button
+            onClick={() => onApprove(request.id)}
+            className="px-4 py-2 bg-green-500 text-white rounded"
+          >
+            Approve
+          </button>
+        </div>
+      </CardContent>
+    )}
   </Card>
 );
 
@@ -47,7 +69,6 @@ const LeaveManagementDashboard = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [activeTab, setActiveTab] = useState("pending");
 
-  // Mock data - replace with actual data fetching logic
   const leaveRequests = [
     {
       id: 1,
@@ -134,12 +155,10 @@ const LeaveManagementDashboard = () => {
   );
 
   const handleApprove = (id) => {
-    // Implement approve logic
     console.log("Approved request:", id);
   };
 
   const handleReject = (id) => {
-    // Implement reject logic
     console.log("Rejected request:", id);
   };
 
@@ -184,6 +203,7 @@ const LeaveManagementDashboard = () => {
                     request={request}
                     onApprove={handleApprove}
                     onReject={handleReject}
+                    viewMode={viewMode}
                   />
                 ))}
               </div>
@@ -195,6 +215,7 @@ const LeaveManagementDashboard = () => {
                     request={request}
                     onApprove={handleApprove}
                     onReject={handleReject}
+                    viewMode={viewMode}
                   />
                 ))}
               </div>
@@ -213,7 +234,6 @@ const LeaveManagementDashboard = () => {
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
               events={[
-                // Add your events here
                 { title: "Public Holiday", date: "2024-09-15", color: "red" },
                 { title: "Team Leave", date: "2024-09-20", color: "blue" },
               ]}
