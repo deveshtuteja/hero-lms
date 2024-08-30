@@ -31,7 +31,7 @@ const LoginPage = () => {
             {!isDarkTheme ? "🌙" : "🔆"}
           </button> */}
         </div>
-        <div className="max-w-md w-full space-y-8 p-10 bg-gray-700 dark:bg-gray-800 rounded-xl shadow-lg">
+        <div className="max-w-md w-full space-y-8 p-10 bg-gray-700 dark:bg-gray-800 rounded-xl shadow-lg opacity-90">
           <div>
             <img
               className="mx-auto h-12 w-auto"
