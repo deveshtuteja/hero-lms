@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Timesheet = () => {
   const [timesheetData, setTimesheetData] = useState([
@@ -96,6 +98,7 @@ const Timesheet = () => {
   const [issue, setIssue] = useState("");
   const [date, setDate] = useState("");
   const [error, setError] = useState("");
+  const notify = () => toast("Submitted Successfully!");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -114,12 +117,12 @@ const Timesheet = () => {
           }
         : entry
     );
-
+    notify();
     setTimesheetData(updatedData);
     setDate("");
     setIssue("");
     setError("");
-    alert("Correction request submitted successfully!");
+    // alert("Correction request submitted successfully!");
   };
 
   const handleDetailsToggle = (index) => {
@@ -139,6 +142,7 @@ const Timesheet = () => {
           <div className="text-red-500 dark:text-red-400 mb-4">{error}</div>
         )}
         <form onSubmit={handleFormSubmit}>
+          <ToastContainer />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Date Selection */}
             <div>
