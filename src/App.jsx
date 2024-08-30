@@ -9,12 +9,17 @@ import SupportQueryForm from "./components/SupportQueryForm";
 import Profile from "./components/Profile";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import LoginPage from "./components/LoginPage";
 
 function App() {
   const appRouter = createBrowserRouter([
     {
       path: "/",
       element: <Body />,
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
     },
     {
       path: "/profile",
